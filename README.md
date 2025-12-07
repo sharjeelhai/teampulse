@@ -1,16 +1,1 @@
-# teampulse
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+🚀 TeamPulse: GDG Team & Meeting Management AppTeamPulse is a powerful, Flutter-based mobile application designed to streamline team, meeting, and attendance management for GDG (Google Developer Group) campus chapters2. It enforces strict Role-Based Access Control (RBAC) 3to maintain a scalable and secure organizational structure across multiple chapters4.✨ Core FeaturesRole-Based Access Control (RBAC): Supports hierarchical roles including Super Admin (optional), Chapter Lead, Team Lead, and Member5. Permissions are strictly enforced, with Chapter Leads restricted to their own chapter6.Team & Member Management: Chapter Leads can create teams, assign/remove Team Leads, and manage members7777.Meeting Management: Team Leads schedule meetings with details like date, time, and topic8888. Members receive timely notifications9999.Attendance Module: Team Leads can easily mark attendance, which supports Present, Absent, and Late statuses10101010. Duplicate entries are prevented11.Attendance Tracking: Provides chapter-wide analytics for Chapter Leads 12, team-specific trends for Team Leads 13, and personal attendance logs for Members14141414.💻 Technology StackFrontend: Flutter (Mobile Application) 15Architecture: Clean Architecture principles 16State Management: Provider/Getx 17Backend: Firebase 18Security: Firestore permissions used for RBAC enforcement 19Optional Caching: Hive 20🗺️ Data Models (Simplified)ModelKey FieldsUserid, name, role, chapterId 21Teamid, chapterId, name, leadId, members 22Meetingid, teamId, topic, date, time, leadId 23Attendanceid, meetingId, memberId, status 24
