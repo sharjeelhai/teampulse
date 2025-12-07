@@ -60,19 +60,32 @@ Chapter Leads get chapter level attendance insights. Team Leads see team specifi
 ---
 
 ## 📱 Screenshots
+
+
+### Splash Screen
+<img src="assets/screenshots/splash.png" alt="Splash Screen" width="400"/>
+
 ### Login
-[<img src="assets/screenshots/login.png" width="200"/>](assets/screenshots/login.png)
+<img src="assets/screenshots/login.png" alt="Login Screen" width="400"/>
 
-Add your app screenshots here:
+### Signup
+<img src="assets/screenshots/signup.png" alt="Signup Screen" width="400"/>
 
-```
-/assets/screenshots/
-  - login.png
-  - dashboard.png
-  - meetings.png
-  - attendance.png
-  - analytics.png
-```
+### Admin Panel 1
+<img src="assets/screenshots/admin1.png" alt="Admin Panel 1" width="400"/>
+
+### Admin Panel 2
+<img src="assets/screenshots/admin2.png" alt="Admin Panel 2" width="400"/>
+
+### Team Screen
+<img src="assets/screenshots/team.png" alt="Team Screen" width="400"/>
+
+### Chapter Screen
+<img src="assets/screenshots/chapter.png" alt="Chapter Screen" width="400"/>
+
+### Member Screen
+<img src="assets/screenshots/member.png" alt="Member Screen" width="400"/>
+
 
 ---
 
