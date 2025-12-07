@@ -1,6 +1,3 @@
-Here’s a polished and clean **GitHub README.md** for your project. It’s structured, clear, and looks professional.
-
----
 
 # 🚀 TeamPulse
 
