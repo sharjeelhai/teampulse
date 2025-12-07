@@ -1,38 +1,107 @@
-
-## 🚀 TeamPulse: GDG Team & Meeting Management App
-
-[cite_start]TeamPulse is a powerful, Flutter-based mobile application designed to streamline team, meeting, and attendance management for **GDG (Google Developer Group) campus chapters**[cite: 3]. [cite_start]It enforces strict **Role-Based Access Control (RBAC)** [cite: 4] [cite_start]to maintain a scalable and secure organizational structure across multiple chapters[cite: 4].
+Here’s a polished and clean **GitHub README.md** for your project. It’s structured, clear, and looks professional.
 
 ---
 
-### ✨ Core Features
+# 🚀 TeamPulse
 
-* [cite_start]**Role-Based Access Control (RBAC):** Supports hierarchical roles including Super Admin (optional), Chapter Lead, Team Lead, and Member[cite: 5]. [cite_start]Permissions are strictly enforced, with Chapter Leads restricted to their own chapter[cite: 70].
-* [cite_start]**Team & Member Management:** Chapter Leads can create teams, assign/remove Team Leads, and manage members[cite: 11, 12, 13, 27, 28].
-* [cite_start]**Meeting Management:** Team Leads schedule meetings with details like date, time, and topic[cite: 17, 32]. [cite_start]Members receive timely notifications[cite: 23, 33].
-* [cite_start]**Attendance Module:** Team Leads can easily mark attendance, which supports **Present, Absent, and Late** statuses[cite: 18, 36, 37]. [cite_start]Duplicate entries are prevented[cite: 38].
-* [cite_start]**Attendance Tracking:** Provides chapter-wide analytics for Chapter Leads [cite: 40][cite_start], team-specific trends for Team Leads [cite: 41][cite_start], and personal attendance logs for Members[cite: 24, 42].
+A Flutter based app built for GDG campus chapters to manage teams, meetings, and attendance with a clean workflow and strict role based access.
 
 ---
 
-### 💻 Technology Stack
+## 📌 Overview
 
-* [cite_start]**Frontend:** Flutter (Mobile Application) [cite: 3]
-* [cite_start]**Architecture:** Clean Architecture principles [cite: 52]
-* [cite_start]**State Management:** Provider/Getx [cite: 53]
-* [cite_start]**Backend:** Firebase [cite: 54]
-* [cite_start]**Security:** Firestore permissions used for RBAC enforcement [cite: 55]
-* [cite_start]**Optional Caching:** Hive [cite: 57]
+TeamPulse helps chapters stay organized by giving Chapter Leads and Team Leads the tools they need to run teams smoothly. Members get a simple view of meetings and attendance, while leads get full control over management actions.
 
 ---
 
-### 🗺️ Data Models (Simplified)
+## ✨ Features
 
-| Model | Key Fields |
-| :--- | :--- |
-| [cite_start]**User** | id, name, role, chapterId [cite: 60] |
-| [cite_start]**Team** | id, chapterId, name, leadId, members [cite: 62] |
-| [cite_start]**Meeting** | id, teamId, topic, date, time, leadId [cite: 64] |
-| [cite_start]**Attendance** | id, meetingId, memberId, status [cite: 66] |
+### 🔐 Role Based Access Control
+
+Roles include Super Admin (optional), Chapter Lead, Team Lead, and Member. Each role has its own permissions, ensuring secure and organized management across chapters.
+
+### 👥 Team and Member Management
+
+Chapter Leads can create teams, assign Team Leads, and manage members. It keeps the chapter structure transparent and easy to maintain.
+
+### 📅 Meeting Management
+
+Team Leads can schedule meetings by selecting date, time, and topic. Members get notified when new meetings are created.
+
+### 📝 Attendance Module
+
+Supports Present, Absent, and Late statuses. Duplicate attendance entries are blocked, ensuring clean and reliable data.
+
+### 📊 Analytics and Tracking
+
+Chapter Leads get chapter level attendance insights. Team Leads see team specific data, and members can view their personal attendance history.
 
 ---
+
+## 🛠️ Tech Stack
+
+| Layer                | Technology                          |
+| -------------------- | ----------------------------------- |
+| **Frontend**         | Flutter (Dart)                      |
+| **Architecture**     | Clean Architecture                  |
+| **State Management** | Provider or GetX                    |
+| **Backend**          | Firebase (Auth, Firestore, Storage) |
+| **Security**         | Firestore rules for RBAC            |
+| **Local Caching**    | Hive                                |
+
+---
+
+## 🗂️ Data Models
+
+| Model          | Key Fields                             |
+| -------------- | -------------------------------------- |
+| **User**       | id, name, role, chapterId              |
+| **Team**       | id, chapterId, name, leadId, members[] |
+| **Meeting**    | id, teamId, topic, date, time, leadId  |
+| **Attendance** | id, meetingId, memberId, status        |
+
+---
+
+## 📱 Screenshots
+
+Add your app screenshots here:
+
+```
+/assets/screenshots/
+  - login.png
+  - dashboard.png
+  - meetings.png
+  - attendance.png
+  - analytics.png
+```
+
+---
+
+## 🚧 Installation
+
+### 1. Clone the repository
+
+```bash
+git clone https://github.com/your-username/TeamPulse.git
+cd TeamPulse
+```
+
+### 2. Install dependencies
+
+```bash
+flutter pub get
+```
+
+### 3. Configure Firebase
+
+Add your Firebase `google-services.json` and `GoogleService-Info.plist` files to the required directories.
+
+### 4. Run the app
+
+```bash
+flutter run
+```
+
+---
+
+
