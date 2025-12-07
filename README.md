@@ -61,7 +61,8 @@ Chapter Leads get chapter level attendance insights. Team Leads see team specifi
 
 ## 📱 Screenshots
 ### Login
-![Login Screen](assets/screenshots/login.png)
+[<img src="assets/screenshots/login.png" width="200"/>](assets/screenshots/login.png)
+
 Add your app screenshots here:
 
 ```
