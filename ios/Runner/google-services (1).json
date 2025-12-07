@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "874004710608",
+    "project_id": "teampulse-4c615",
+    "storage_bucket": "teampulse-4c615.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874004710608:android:96129d1285ae15f6840ad5",
+        "android_client_info": {
+          "package_name": "com.example.teampulse"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgkJwT57OxoXhWQerkZ4kRkKanB8rzumM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874004710608:android:d4ea336bba3029ed840ad5",
+        "android_client_info": {
+          "package_name": "com.example.teampulse.RunnerTests"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgkJwT57OxoXhWQerkZ4kRkKanB8rzumM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

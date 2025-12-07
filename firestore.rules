@@ -1,0 +1,95 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() {
+      return request.auth != null;
+    }
+
+    // Return user doc data or null if not present
+    function getUserData() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data;
+    }
+
+    function hasUserDoc() {
+      return isSignedIn() && getUserData() != null;
+    }
+
+    function isSuperAdmin() {
+      return hasUserDoc() && getUserData().role == 'superAdmin';
+    }
+
+    function isChapterLead(chapterId) {
+      return hasUserDoc() && getUserData().role == 'chapterLead' && getUserData().chapterId == chapterId;
+    }
+
+    function isTeamLead(teamId) {
+      return hasUserDoc() && getUserData().role == 'teamLead' && getUserData().teamId == teamId;
+    }
+
+    // Check if user is a team lead who can create a team
+    function canTeamLeadCreateTeam(chapterId, leadId) {
+      return hasUserDoc() && 
+             getUserData().role == 'teamLead' && 
+             getUserData().chapterId != null &&
+             getUserData().chapterId == chapterId &&
+             getUserData().teamId == null &&
+             request.auth.uid == leadId;
+    }
+
+    // Check if user is a team lead belonging to a chapter
+    function isTeamLeadInChapter(chapterId) {
+      return hasUserDoc() && 
+             getUserData().role == 'teamLead' && 
+             getUserData().chapterId == chapterId;
+    }
+
+    // Users collection
+    match /users/{userId} {
+      allow read: if isSignedIn();
+      // Allow a logged-in user to create their own user document
+      allow create: if isSignedIn() && request.auth.uid == userId;
+      // Allow updates by the owner or a super admin
+      allow update: if isSignedIn() && (request.auth.uid == userId || isSuperAdmin());
+      allow delete: if isSuperAdmin();
+    }
+
+    // Chapters
+    match /chapters/{chapterId} {
+      allow read: if isSignedIn();
+      // Allow super admin to create chapters, or allow chapter leads to create their own chapter if they don't have one assigned
+      allow create: if isSuperAdmin() || (hasUserDoc() && getUserData().role == 'chapterLead' && getUserData().chapterId == null);
+      allow update: if isSignedIn() && (isSuperAdmin() || isChapterLead(chapterId) || isTeamLeadInChapter(chapterId));
+      allow delete: if isSuperAdmin();
+    }
+
+    // Teams
+    match /teams/{teamId} {
+      allow read: if isSignedIn();
+      // For create, allow super admin, chapter leads for their chapters, or team leads creating their own team
+      allow create: if isSignedIn() && (
+        isSuperAdmin() ||
+        isChapterLead(request.resource.data.chapterId) ||
+        canTeamLeadCreateTeam(request.resource.data.chapterId, request.resource.data.leadId)
+      );
+      allow update: if isSignedIn() && (isSuperAdmin() || isChapterLead(resource.data.chapterId) || isTeamLead(teamId));
+      allow delete: if isSignedIn() && (isSuperAdmin() || isChapterLead(resource.data.chapterId));
+    }
+
+    // Meetings
+    match /meetings/{meetingId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && (isTeamLead(request.resource.data.teamId) || isChapterLead(request.resource.data.chapterId));
+      allow update: if isSignedIn() && (isTeamLead(resource.data.teamId) || isChapterLead(resource.data.chapterId));
+      allow delete: if isSignedIn() && (isTeamLead(resource.data.teamId) || isChapterLead(resource.data.chapterId));
+    }
+
+    // Attendance
+    match /attendance/{attendanceId} {
+      allow read: if isSignedIn();
+      allow create: if isSignedIn() && isTeamLead(request.resource.data.teamId);
+      allow update: if isSignedIn() && isTeamLead(resource.data.teamId);
+      allow delete: if isSignedIn() && (isSuperAdmin() || isTeamLead(resource.data.teamId));
+    }
+  }
+}

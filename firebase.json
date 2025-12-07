@@ -1,0 +1,28 @@
+{
+    "firestore": {
+        "rules": "firestore.rules"
+    },
+    "flutter": {
+        "platforms": {
+            "android": {
+                "default": {
+                    "projectId": "teampulse-4c615",
+                    "appId": "1:874004710608:android:96129d1285ae15f6840ad5",
+                    "fileOutput": "android/app/google-services.json"
+                }
+            },
+            "dart": {
+                "lib/firebase_options.dart": {
+                    "projectId": "teampulse-4c615",
+                    "configurations": {
+                        "android": "1:874004710608:android:96129d1285ae15f6840ad5",
+                        "ios": "1:874004710608:ios:bc6e766ff620e919840ad5",
+                        "macos": "1:874004710608:ios:bc6e766ff620e919840ad5",
+                        "web": "1:874004710608:web:37b3d5a58483f981840ad5",
+                        "windows": "1:874004710608:web:0c904783872b2bec840ad5"
+                    }
+                }
+            }
+        }
+    }
+}
